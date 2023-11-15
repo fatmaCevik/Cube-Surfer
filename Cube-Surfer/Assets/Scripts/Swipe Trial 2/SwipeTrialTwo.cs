@@ -1,13 +1,11 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SwipeTrialTwo : MonoBehaviour
 {
     [SerializeField] private GameObject cube;
-
+    
+    private float dragDistance = Screen.height * 15 / 100;
+    private float swipeTime;
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
 
@@ -19,18 +17,21 @@ public class SwipeTrialTwo : MonoBehaviour
          */
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
+            swipeTime = Time.time;
             startTouchPosition = Input.GetTouch(0).position;
         }
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            endTouchPosition = Input.GetTouch(0).position;
+            if (Time.time - swipeTime < 0.5f)
+            {
+                endTouchPosition = Input.GetTouch(0).position;
 
-            if (endTouchPosition.x < startTouchPosition.x)
-                Right();
+                if (endTouchPosition.x - startTouchPosition.x < -dragDistance)
+                    Right();
 
-            if (endTouchPosition.x > startTouchPosition.x)
-                Left();
-
+                if (endTouchPosition.x - startTouchPosition.x > dragDistance)
+                    Left();
+            }
         }
     }
     private void Left()
