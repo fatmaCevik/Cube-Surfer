@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 889052541}
   - component: {fileID: 889052540}
   - component: {fileID: 889052539}
+  - component: {fileID: 889052542}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -322,6 +323,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889052537}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &889052542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889052537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b695f69b073f54f831ed6930d202e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeSpeed: 1.5
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,14 +437,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1155444165}
-  - component: {fileID: 1155444166}
   m_Layer: 0
   m_Name: Swipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1155444165
 Transform:
   m_ObjectHideFlags: 0
@@ -446,19 +459,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1155444166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155444162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8672bb905e6a1d54fb9d0537f3b85502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cube: {fileID: 889052537}
 --- !u!1 &1261307917
 GameObject:
   m_ObjectHideFlags: 0
