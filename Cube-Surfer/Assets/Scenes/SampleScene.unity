@@ -609,6 +609,7 @@ MonoBehaviour:
   swipeSpeed: 1.5
   minClampPoint: {fileID: 1789534993}
   maxClampPoint: {fileID: 1192014391}
+  movementSpeed: 5
 --- !u!4 &1994970906
 Transform:
   m_ObjectHideFlags: 0
@@ -655,8 +656,8 @@ Transform:
   m_GameObject: {fileID: 2114817095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.49999988, z: 23.000006}
-  m_LocalScale: {x: 7, y: 1, z: 54.000004}
+  m_LocalPosition: {x: 0, y: -0.5, z: 48.4122}
+  m_LocalScale: {x: 7, y: 1, z: 104.82415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630415839}
