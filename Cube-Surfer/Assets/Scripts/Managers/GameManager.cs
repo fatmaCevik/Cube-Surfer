@@ -1,16 +1,26 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance;
+
+    public bool isGameStarted;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
+        isGameStarted = true;
+
+        UIManager.Instance.SetState(UIState.Start);
+
+        PlayerMovement.Instance.StartMove();
     }
+
+    
 }
+

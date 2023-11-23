@@ -3,14 +3,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     //Oyuncu hareket hýzý
     [SerializeField] private float movementSpeed;
 
     //Oyuncunun hareketine izin verip vermediðini belirten bir boolean deðiþken
     private bool isMoveEnabled;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Update()
     {
         MoveForward();
         //MoveHorizontaly();
@@ -40,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         //'UIManager''daki 'SetState' metodunu kullanarak UI durumunu start olarak ayarlar. 
         //Bu oyunun baþlamýþ olduðunu belirten bir UI durumudur. 
-        UIManager.Instance.SetState(UIState.Start);
+        //UIManager.Instance.SetState(UIState.Start);
     }
 }
 
