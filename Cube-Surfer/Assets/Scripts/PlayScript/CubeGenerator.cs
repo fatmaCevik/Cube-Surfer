@@ -5,7 +5,6 @@ using UnityEngine;
 public class CubeGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject cubePrefab;
-    //[SerializeField] private Transform ground; 
     [SerializeField] private float cubeSpacing = 1f;
     [SerializeField] private int cubeCount = 5;
     [SerializeField] private float startingHeight = 1f;
@@ -29,8 +28,6 @@ public class CubeGenerator : MonoBehaviour
             GameObject cube = Instantiate(cubePrefab, transform.position + Vector3.up * i * cubeSpacing, Quaternion.identity);
 
             generatedCubes.Add(cube);
-
-            //cube.transform.position = new Vector3(cube.transform.position.x, startingHeight, cube.transform.position.z);
 
             cube.transform.SetParent(transform, true); //Sefa'ya sor!!
         }
