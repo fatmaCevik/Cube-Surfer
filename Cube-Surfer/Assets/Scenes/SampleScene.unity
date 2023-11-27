@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d54c371ab4a76345b821c6a9a7c0382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 889052538}
+  playerModel: {fileID: 1994970906}
   minClampTr: {fileID: 1789534993}
   maxClampTr: {fileID: 1192014391}
   moveSensitivity: 0.01
@@ -888,7 +888,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 5369009763733342572, guid: 29c3e8ad1802ea04d8c297bc08ad808e, type: 3}
   cubes: {fileID: 1570011430}
   cubeSpacing: 1
-  cubeCount: 10
+  cubeCount: 5
 --- !u!4 &931195431
 Transform:
   m_ObjectHideFlags: 0
@@ -991,8 +991,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19141386, y: -0.15242378, z: 0.030103847, w: 0.96913445}
-  m_LocalPosition: {x: 3.3914585, y: 4.451036, z: -7.5037823}
+  m_LocalRotation: {x: -0.06935318, y: 0.17524566, z: -0.012338886, w: -0.9820014}
+  m_LocalPosition: {x: 7.14025, y: 7.595006, z: -10.389633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1224,6 +1224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570011431}
+  - component: {fileID: 1570011432}
   m_Layer: 0
   m_Name: Cubes
   m_TagString: Untagged
@@ -1246,6 +1247,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 931195431}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570011432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570011430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689cca22808f5314abbd6647a06705c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1630415838
 GameObject:
   m_ObjectHideFlags: 0
