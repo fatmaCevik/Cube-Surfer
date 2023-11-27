@@ -14,6 +14,7 @@ public class CubeGenerator : MonoBehaviour
     void Start()
     {
         GenerateCubes();
+        PlayerController.instance.SetStickManPositon(cubeCount);
     }
 
     void Update()
@@ -25,14 +26,28 @@ public class CubeGenerator : MonoBehaviour
     {
         for (int i = 0; i < cubeCount; i++)
         {
-            GameObject cube = Instantiate(cubePrefab, transform.localPosition + Vector3.up * i * cubeSpacing, Quaternion.identity);
+            //GameObject cube = Instantiate(cubePrefab, transform.localPosition + Vector3.up * i * cubeSpacing, Quaternion.identity);
+            GameObject cube = Instantiate(cubePrefab, cubes.transform);
+            cube.transform.localPosition = Vector3.zero;
 
             generatedCubes.Add(cube);
 
-            cube.transform.SetParent(cubes.transform, false); //Sefa'ya sor!!
+            //cube.transform.SetParent(cubes.transform); //Sefa'ya sor!!
         }
+
+        SetCollectedCubesPositions();
     }
 
+    private void SetCollectedCubesPositions()
+    {
+        int generatedCubeCount = generatedCubes.Count;
+
+        for (int i = 0; i < generatedCubeCount; i++)
+        {
+            Transform cubeTr = generatedCubes[i].transform;
+            cubeTr.localPosition = Vector3.up * cubeSpacing * (generatedCubeCount - (i + 1));
+        }
+    }
 
 
 }

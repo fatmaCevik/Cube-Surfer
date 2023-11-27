@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.SetState(UIState.Start);
 
-        PlayerMovement.Instance.StartMove();
+        MovementController.Instance.StartMove();
     }
 
     
