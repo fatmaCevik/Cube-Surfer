@@ -4,9 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Border
-  - RightBorder
-  - LeftBorder
+  - CollectCube
   layers:
   - Default
   - TransparentFX
