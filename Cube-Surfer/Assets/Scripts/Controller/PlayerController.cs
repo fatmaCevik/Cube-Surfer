@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
-
-    [SerializeField] private GameObject stickMan;
+    public static PlayerController Instance;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
-    public void SetStickManPositon(int cubeCount)
+    public void SetStickManPosition(int cubeCount)
     {
-        stickMan.transform.localPosition = Vector3.up * cubeCount;
+        transform.localPosition = Vector3.up * cubeCount;
     }
 
 }

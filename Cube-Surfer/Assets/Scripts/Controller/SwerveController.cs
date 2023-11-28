@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class SwerveController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-	[SerializeField] private Transform playerModel; // Oyuncu modelinin transform bileþeni.
+	[SerializeField] private Transform swerveParent; // Oyuncu modelinin transform bileþeni.
 	[SerializeField] private Transform minClampTr; 
 	[SerializeField] private Transform maxClampTr;
 
@@ -31,9 +31,9 @@ public class SwerveController : MonoBehaviour, IDragHandler, IPointerUpHandler, 
 		Vector2 difVec = eventData.position - moveLastPos;
 
 		//MOVEMENT
-		if (playerModel != null)
+		if (swerveParent != null)
 		{
-			playerModel.localPosition += Vector3.right * difVec.x * moveSensitivity;
+			swerveParent.localPosition += Vector3.right * difVec.x * moveSensitivity;
 
 			moveLastPos = eventData.position;
 		}
@@ -59,11 +59,11 @@ public class SwerveController : MonoBehaviour, IDragHandler, IPointerUpHandler, 
 	//Player'ýn pozisyonunu belirli sýnýrlar içinde kýsýtlayan bir metot.
 	public void Clamp()
 	{
-		if (playerModel != null)
+		if (swerveParent != null)
 		{
-			Vector3 clampedPos = playerModel.localPosition;
+			Vector3 clampedPos = swerveParent.localPosition;
 			clampedPos.x = Mathf.Clamp(clampedPos.x, minClampTr.localPosition.x, maxClampTr.localPosition.x);
-			playerModel.localPosition = clampedPos;
+			swerveParent.localPosition = clampedPos;
 		}
 	}
 }

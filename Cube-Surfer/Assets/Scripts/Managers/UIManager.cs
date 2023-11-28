@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject startPanel;
     public GameObject swervePanel;
 
-    //Geçerli UI durumu
+    //Geçerli UI durum
     private UIState currentState;
 
     //Betik örneði yüklenirken çaðrýlýr - yaþam döngüsü metodlarýndan biri

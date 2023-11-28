@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,18 +7,22 @@ public class CubeGenerator : MonoBehaviour
     [SerializeField] private GameObject cubes;
     [SerializeField] private float cubeSpacing = 1f;
     [SerializeField] private int cubeCount = 5;
+    [SerializeField] private int cubeDestroyCount = 0;
+    [SerializeField] private KeyCode cubeDestroyKey = KeyCode.Space;
 
     private List<GameObject> generatedCubes = new List<GameObject>();
 
-    void Start()
+
+    private void Start()
     {
         GenerateCubes();
-        PlayerController.instance.SetStickManPositon(cubeCount);
+        PlayerController.Instance.SetStickManPosition(cubeCount);
     }
 
     void Update()
     {
-        
+        DestroyCubes();
+        PlayerController.Instance.SetStickManPosition(cubeCount);
     }
 
     private void GenerateCubes()
@@ -49,5 +52,23 @@ public class CubeGenerator : MonoBehaviour
         }
     }
 
+    private void DestroyCubes()
+    {
+        if (Input.GetKeyDown(cubeDestroyKey))
+        {
+            for (int i = 0; i < cubeDestroyCount; i++)
+            {
+                if (generatedCubes.Count > 0)
+                {
+                    int lastIndex = generatedCubes.Count - 1;
+                    GameObject cube = generatedCubes[lastIndex];
+                    generatedCubes.RemoveAt(lastIndex);
+                    Destroy(cube);
+                    cubeCount -= cubeDestroyCount;
+                }
+            }
+        }
 
+        SetCollectedCubesPositions();
+    }
 }
