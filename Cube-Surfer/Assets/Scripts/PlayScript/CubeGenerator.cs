@@ -6,8 +6,8 @@ public class CubeGenerator : MonoBehaviour
     [SerializeField] private GameObject cubePrefab;
     [SerializeField] private GameObject cubes;
     [SerializeField] private float cubeSpacing = 1f;
-    [SerializeField] private int cubeCount = 0;
     [SerializeField] private int cubeDestroyCount = 0;
+    [SerializeField] private int initialCubeCount;
     [SerializeField] private KeyCode cubeDestroyKey = KeyCode.Space;
 
     private List<GameObject> generatedCubes = new List<GameObject>();
@@ -15,31 +15,39 @@ public class CubeGenerator : MonoBehaviour
 
     private void Start()
     {
-        GenerateCubes();
-        PlayerController.Instance.SetStickManPosition(cubeCount);
+        GenerateCubes(initialCubeCount);
     }
 
     private void Update()
     {
-        //GenerateCubes();
-        DestroyCubes();
-        PlayerController.Instance.SetStickManPosition(generatedCubes.Count);
+        if (Input.GetKeyDown(cubeDestroyKey))
+        {
+            DestroyCubes();
+        }
     }
-/*
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("CollectCube") && !generatedCubes.Contains(other.gameObject))
-        {
-            generatedCubes.Add(other.gameObject);
-            other.gameObject.transform.SetParent(cubes.transform);
-            cubeCount++;
+        GameObject otherObject = other.gameObject;
 
-            Destroy(other.gameObject);
+        if(otherObject.layer == LayerMask.NameToLayer("CollectableCube"))
+        {
+            GenerateCubes(1);
+
+            Destroy(otherObject.transform.parent.gameObject);
         }
-        SetCollectedCubesPositions();
+
+        //if (other.CompareTag("CollectCube") && !generatedCubes.Contains(other.gameObject))
+        //{
+        //    Debug.Log("b!");
+
+        //    generatedCubes.Add(other.gameObject);
+        //}
+
+        //SetCollectedCubesPositions();
     }
-*/
-    private void GenerateCubes()
+
+    private void GenerateCubes(int cubeCount)
     {
         for (int i = 0; i < cubeCount; i++)
         {
@@ -53,8 +61,11 @@ public class CubeGenerator : MonoBehaviour
         }
 
         SetCollectedCubesPositions();
+
+        int generatedCubeCount = generatedCubes.Count;
+        PlayerController.Instance.SetStickManPosition(generatedCubeCount);
     }
-    
+
     private void SetCollectedCubesPositions()
     {
         int generatedCubeCount = generatedCubes.Count;
@@ -68,20 +79,20 @@ public class CubeGenerator : MonoBehaviour
 
     private void DestroyCubes()
     {
-        if (Input.GetKeyDown(cubeDestroyKey))
+        if (generatedCubes.Count == 0) return;
+
+        for (int i = 0; i < cubeDestroyCount; i++)
         {
-            for (int i = 0; i < cubeDestroyCount; i++)
-            {
-                if (generatedCubes.Count > 0)
-                {
-                    int lastIndex = generatedCubes.Count - 1; //Listenin son elemanýnýn indeksini alýr.
-                    GameObject cube = generatedCubes[lastIndex]; //Listenin son indeksini temsil eden nesneyi al.
-                    generatedCubes.RemoveAt(lastIndex); //Listeden son elemaný yok eder.
-                    Destroy(cube); //Listeden çýkardýðýmýz son küpü yok eder. (Kullanmadýðýmda son iki küp oyunda kalýyor.)
-                }
-            }
+            int lastIndex = generatedCubes.Count - 1; //Listenin son elemanýnýn indeksini alýr.
+            GameObject cube = generatedCubes[lastIndex]; //Listenin son indeksini temsil eden nesneyi al.
+            generatedCubes.RemoveAt(lastIndex); //Listeden son elemaný yok eder.
+            Destroy(cube); //Listeden çýkardýðýmýz son küpü yok eder. (Kullanmadýðýmda son iki küp oyunda kalýyor.)
         }
 
+
         SetCollectedCubesPositions();
+
+        int generatedCubeCount = generatedCubes.Count;
+        PlayerController.Instance.SetStickManPosition(generatedCubeCount);
     }
 }
