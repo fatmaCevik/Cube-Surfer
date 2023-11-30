@@ -30,21 +30,12 @@ public class CubeGenerator : MonoBehaviour
     {
         GameObject otherObject = other.gameObject;
 
-        if(otherObject.layer == LayerMask.NameToLayer("CollectableCube"))
+        if (otherObject.layer == LayerMask.NameToLayer("CollectableCube"))
         {
             GenerateCubes(1);
 
-            Destroy(otherObject.transform.parent.gameObject);
+            Destroy(otherObject.transform.parent.gameObject); //objenin baðlý olduðu parent objesine ulaþýp siliyor. Böylelikle parent gidince child da gidiyor. 
         }
-
-        //if (other.CompareTag("CollectCube") && !generatedCubes.Contains(other.gameObject))
-        //{
-        //    Debug.Log("b!");
-
-        //    generatedCubes.Add(other.gameObject);
-        //}
-
-        //SetCollectedCubesPositions();
     }
 
     private void GenerateCubes(int cubeCount)
@@ -56,8 +47,6 @@ public class CubeGenerator : MonoBehaviour
             cube.transform.localPosition = Vector3.zero;
 
             generatedCubes.Add(cube);
-
-            //cube.transform.SetParent(cubes.transform); //Sefa'ya sor!!
         }
 
         SetCollectedCubesPositions();
