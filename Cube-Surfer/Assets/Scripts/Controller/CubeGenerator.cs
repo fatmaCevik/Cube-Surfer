@@ -7,8 +7,11 @@ public class CubeGenerator : MonoBehaviour
     [SerializeField] private GameObject cubes;
     [SerializeField] private float cubeSpacing = 1f;
     [SerializeField] private int cubeDestroyCount = 0;
-    [SerializeField] private int initialCubeCount;
+    [SerializeField] private int initialCubeCount; //Baþtaki küp sayýsý
     [SerializeField] private KeyCode cubeDestroyKey = KeyCode.Space;
+
+    [SerializeField] private GameObject obstacleCubePrefab; //OBS
+    [SerializeField] private LayerMask obstacleLayer; //OBS
 
     private List<GameObject> generatedCubes = new List<GameObject>();
 
@@ -35,6 +38,11 @@ public class CubeGenerator : MonoBehaviour
             GenerateCubes(1);
 
             Destroy(otherObject.transform.parent.gameObject); //objenin baðlý olduðu parent objesine ulaþýp siliyor. Böylelikle parent gidince child da gidiyor. 
+        }
+
+        if (otherObject.layer == LayerMask.NameToLayer("ObstacleCube")) //OBS
+        {
+            LeaveCubesOnObstacle();
         }
     }
 
@@ -84,4 +92,29 @@ public class CubeGenerator : MonoBehaviour
         int generatedCubeCount = generatedCubes.Count;
         PlayerController.Instance.SetStickManPosition(generatedCubeCount);
     }
+
+    private void LeaveCubesOnObstacle() //OBS
+    {
+        if (generatedCubes.Count == 0) return;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, float.MaxValue, obstacleLayer))
+        {
+            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("ObstacleCube"))
+            {
+                int lastIndex = generatedCubes.Count - 1;
+                GameObject cube = generatedCubes[lastIndex];
+
+                cube.transform.parent = null;
+                generatedCubes.Remove(cube);
+            }
+        }
+
+        SetCollectedCubesPositions();
+
+        int generatedCubeCount = generatedCubes.Count;
+        PlayerController.Instance.SetStickManPosition(generatedCubeCount);
+    }
+
 }
