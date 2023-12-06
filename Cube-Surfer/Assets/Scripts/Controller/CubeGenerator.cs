@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CubeGenerator : MonoBehaviour
 {
+    public static CubeGenerator Instance;
+
     [SerializeField] private GameObject cubePrefab;
     [SerializeField] private GameObject cubes;
     [SerializeField] private float cubeSpacing = 1f;
@@ -10,11 +12,12 @@ public class CubeGenerator : MonoBehaviour
     [SerializeField] private int initialCubeCount; //Baþtaki küp sayýsý
     [SerializeField] private KeyCode cubeDestroyKey = KeyCode.Space;
 
-    [SerializeField] private GameObject obstacleCubePrefab; //OBS
-    [SerializeField] private LayerMask obstacleLayer; //OBS
-
     private List<GameObject> generatedCubes = new List<GameObject>();
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -35,14 +38,12 @@ public class CubeGenerator : MonoBehaviour
 
         if (otherObject.layer == LayerMask.NameToLayer("CollectableCube"))
         {
+            CollactableCube collactableCube = otherObject.GetComponent<CollactableCube>();
+            if (collactableCube.isCollected) return;
+
             GenerateCubes(1);
 
-            Destroy(otherObject.transform.parent.gameObject); //objenin baðlý olduðu parent objesine ulaþýp siliyor. Böylelikle parent gidince child da gidiyor. 
-        }
-
-        if (otherObject.layer == LayerMask.NameToLayer("ObstacleCube")) //OBS
-        {
-            LeaveCubesOnObstacle();
+            Destroy(otherObject);
         }
     }
 
@@ -53,6 +54,8 @@ public class CubeGenerator : MonoBehaviour
             //GameObject cube = Instantiate(cubePrefab, transform.localPosition + Vector3.up * i * cubeSpacing, Quaternion.identity);
             GameObject cube = Instantiate(cubePrefab, cubes.transform);
             cube.transform.localPosition = Vector3.zero;
+            CollactableCube collactableCube = cube.GetComponent<CollactableCube>();
+            collactableCube.isCollected = true;
 
             generatedCubes.Add(cube);
         }
@@ -86,35 +89,25 @@ public class CubeGenerator : MonoBehaviour
             Destroy(cube); //Listeden çýkardýðýmýz son küpü yok eder. (Kullanmadýðýmda son iki küp oyunda kalýyor.)
         }
 
-
         SetCollectedCubesPositions();
 
         int generatedCubeCount = generatedCubes.Count;
         PlayerController.Instance.SetStickManPosition(generatedCubeCount);
     }
 
-    private void LeaveCubesOnObstacle() //OBS
+    public void LeaveCubesOnObstacle()
     {
-        if (generatedCubes.Count == 0) return;
+        int lastIndex = generatedCubes.Count - 1;
+        GameObject cube = generatedCubes[lastIndex];
 
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.forward, out hit, float.MaxValue, obstacleLayer))
-        {
-            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("ObstacleCube"))
-            {
-                int lastIndex = generatedCubes.Count - 1;
-                GameObject cube = generatedCubes[lastIndex];
-
-                cube.transform.parent = null;
-                generatedCubes.Remove(cube);
-            }
-        }
-
-        SetCollectedCubesPositions();
-
-        int generatedCubeCount = generatedCubes.Count;
-        PlayerController.Instance.SetStickManPosition(generatedCubeCount);
+        cube.transform.parent = null;
+        generatedCubes.Remove(cube);
     }
-
 }
+
+
+            
+        
+    
+
+
