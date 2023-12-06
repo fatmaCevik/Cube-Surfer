@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -544,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -735,6 +735,10 @@ PrefabInstance:
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_Name
       value: ObstacleCube (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4938086319274970201, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsTrigger
@@ -1158,7 +1162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1198,7 +1202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1373,7 +1377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1413,7 +1417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1434,7 +1438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1474,7 +1478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2381,7 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 409295083677222638, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2421,7 +2425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2540,6 +2544,10 @@ PrefabInstance:
     - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_Name
       value: ObstacleCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518940003743231211, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4938086319274970201, guid: e5f18a3b6c3318545a669a9544a926c4, type: 3}
       propertyPath: m_IsTrigger
