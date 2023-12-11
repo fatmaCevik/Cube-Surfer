@@ -406,7 +406,7 @@ namespace PathCreation {
             // Loop through all segments and keep track of the minmax points of all their bounding boxes
             MinMax3D minMax = new MinMax3D ();
 
-            for (int i = 0; i < NumSegments; i++) {
+            for (int i = 0; i < NumSegments; i++) { 
                 Vector3[] p = GetPointsInSegment (i);
                 for (int j = 0; j < p.Length; j++) {
                     p[j] = MathUtility.TransformPoint (p[j], transform, space);
