@@ -1,6 +1,4 @@
 using UnityEngine;
-using PathCreation;
-using System.Runtime.CompilerServices;
 
 public class MovementController : MonoBehaviour
 {
@@ -8,9 +6,7 @@ public class MovementController : MonoBehaviour
 
     //Oyuncu hareket hýzý
     [SerializeField] private float movementSpeed;
-    [SerializeField] private PathCreator pathCreator;
 
-    private float distanceTravelled;
 
     //Oyuncunun hareketine izin verip vermediðini belirten bir boolean deðiþken
     private bool isMoveEnabled;
@@ -30,12 +26,8 @@ public class MovementController : MonoBehaviour
     {
         //'isMoveEnabled' kontrol edilir, eðer false ise hareket etmez.
         if (!isMoveEnabled) return;
-
-        distanceTravelled += movementSpeed * Time.deltaTime;
-        transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
-        transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled);
-
-        //transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        
+        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
     }
 
     private void MovementEnabled(bool status)
